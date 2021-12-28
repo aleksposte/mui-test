@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import App from "./App";
+import Main from "./components/Main";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import { render, screen, getByText, container } from '@testing-library/react'
+import '@testing-library/jest-dom'
+
+test('render Main - title', async () => {
+  render(<Main />)
+  expect(screen.queryByText('Вмещаемость главного зала'))
+})
+
+test('render Main - items', async () => {
+  render(<Main />)
+  expect(screen.queryByText('кибер соревнования'))
+})
